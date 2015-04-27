@@ -29,7 +29,7 @@ build_dir = ARGV[0]
 
 puts "eating memory"
 a = []
-1_000_000.times do
+5_000_000.times do
   a << [rand(36**10).to_s(36)]
 end
 puts "full"
