@@ -36,9 +36,10 @@ build_dir = ARGV[0]
 # puts "full"
 
 puts "eating disk"
-file = File.open("#{build_dir}/some_file", "a")
-5_000_000.times do
-  file << "your text"
+File.open("#{build_dir}/some_file", "a") do |file|
+  5_000_000.times do
+    file << "your text"
+  end
 end
 file.close
 puts "done eating disk"
