@@ -32,6 +32,7 @@ a = []
 5_000_000.times do
   a << ["test string"]
 end
+puts "\n size is #{a.size}"
 puts "full"
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
