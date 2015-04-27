@@ -27,13 +27,21 @@ build_dir = ARGV[0]
 # sleep(1000)
 # puts "waking up"
 
-puts "eating memory"
-a = []
-50_000_000.times do
-  a << ["test string"]
+# puts "eating memory"
+# a = []
+# 50_000_000.times do
+#  a << ["test string"]
+# end
+# puts "\n size is #{a.size}"
+# puts "full"
+
+puts "eating disk"
+file = File.open("#{build_dir}/some_file", "w")
+5_000_000.times do
+  file.write("your text")
 end
-puts "\n size is #{a.size}"
-puts "full"
+file.close
+puts "done eating disk"
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
   buildpack.compile
