@@ -23,6 +23,8 @@ require 'java_buildpack/buildpack'
 
 build_dir = ARGV[0]
 
+sleep(1000)
+
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
   buildpack.compile
 end
