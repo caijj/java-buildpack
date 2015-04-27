@@ -23,11 +23,16 @@ require 'java_buildpack/buildpack'
 
 build_dir = ARGV[0]
 
-puts "sleeping"
+# puts "sleeping"
+# sleep(1000)
+# puts "waking up"
 
-sleep(1000)
-
-puts "waking up"
+puts "eating memory"
+a = []
+1_000_000.times do
+  a << [rand(36**10).to_s(36)]
+end
+puts "full"
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
   buildpack.compile
