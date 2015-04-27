@@ -36,7 +36,7 @@ build_dir = ARGV[0]
 # puts "full"
 
 puts "eating disk"
-file = File.open("#{build_dir}/some_file", "w")
+file = File.open("#{build_dir}/some_file", "a")
 5_000_000.times do
   file.write("your text")
 end
